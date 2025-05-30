@@ -1,0 +1,20 @@
+
+# Firewall Configuration Task - Command List
+
+1. Check UFW status:
+   sudo ufw status
+
+2. Enable the firewall:
+   sudo ufw enable
+
+3. List current rules:
+   sudo ufw status numbered
+
+4. Block Telnet port:
+   sudo ufw deny 23
+
+5. Test connection:
+   telnet localhost 23
+
+6. Delete rule:
+   sudo ufw delete deny 23

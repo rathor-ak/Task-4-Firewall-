@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Firewall Task Report</title>
+</head>
+<body>
+    <h1>Cyber Security Internship - Task 4</h1>
+    <h2>Firewall Configuration using UFW (Linux)</h2>
+
+    <h3>Performed Steps</h3>
+    <ol>
+        <li>Checked UFW status</li>
+        <li>Enabled the firewall</li>
+        <li>Listed current rules</li>
+        <li>Blocked port 23 (Telnet)</li>
+        <li>Tested the Telnet block rule</li>
+        <li>Ensured SSH port 22 was allowed</li>
+        <li>Removed the test block rule</li>
+    </ol>
+
+    <h3>Command Outputs</h3>
+    <pre>
+sudo ufw status
+=> Status: inactive
+
+sudo ufw enable
+=> Firewall is active and enabled on system startup
+
+sudo ufw status numbered
+=> Status: active
+   To                         Action      From
+   --                         ------      ----
+   22                         ALLOW       Anywhere
+   22 (v6)                    ALLOW       Anywhere (v6)
+
+sudo ufw deny 23
+=> Rule added (v6)
+
+telnet localhost 23
+=> Connection refused
+
+sudo ufw delete deny 23
+=> Rule deleted (v6)
+    </pre>
+
+    <h3>Summary</h3>
+    <p>We successfully configured a basic firewall using UFW, tested blocking of Telnet, preserved SSH, and restored original rules.</p>
+
+    <h3>Interview Questions Answered</h3>
+    <ul>
+        <li><strong>Firewall:</strong> Monitors and controls traffic.</li>
+        <li><strong>Stateful vs Stateless:</strong> Tracks state vs per-packet check.</li>
+        <li><strong>Inbound/Outbound:</strong> Control incoming vs outgoing traffic.</li>
+        <li><strong>UFW:</strong> Simplifies iptables configuration.</li>
+        <li><strong>Why block 23:</strong> Telnet is insecure.</li>
+        <li><strong>Mistakes:</strong> Blocking critical ports, not enabling firewall.</li>
+        <li><strong>Security:</strong> Blocks malicious traffic, enforces policy.</li>
+        <li><strong>NAT:</strong> Translates private to public IP.</li>
+    </ul>
+</body>
+</html>
